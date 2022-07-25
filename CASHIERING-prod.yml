@@ -1,0 +1,32 @@
+welcome:
+ message: "Hello from Cashiering prod environment"
+
+resilience4j:
+ circuitbreaker:
+  circuit-breaker-aspect-order: 1
+  instances:
+   cashieringCB:
+    registerHealthIndicator: true
+    eventConsumerBufferSize: 10
+    failureRateThreshold: 50
+    minimumNumberOfCalls: 5
+    automaticTransitionFromOpenToHalfOpenEnabled: true
+    waitDurationInOpenState: 5s
+    permittedNumberOfCallsInHalfOpenState: 3
+    slidingWindowSize: 5
+    slidingWindowType: COUNT_BASED
+ retry:
+  retry-aspect-order: 2
+  instances:
+   cashieringRetry:
+    #registerHealthIndicator: true
+    maxAttempts: 5
+    waitDuration: 3s
+ ratelimiter:
+  rate-limiter-aspect-order: 3
+  instances:
+   cashieringRL:
+    registerHealthIndicator: false
+    limitForPeriod: 5
+    limitRefreshPeriod: 5s
+    timeoutDuration: 3s
