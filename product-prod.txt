@@ -1,0 +1,10 @@
+resilience4j:
+ ratelimiter:
+  instances:
+   productRL:
+    limitForPeriod: 30
+    limitRefreshPeriod: 2s
+    timeoutDuration: 3s
+
+welcome:
+ message: "Hello welcome to prod environment"
