@@ -1,5 +1,6 @@
 welcome:
  message: "Hello welcome to dev environment"
+
 resilience4j:
  ratelimiter:
   instances:
