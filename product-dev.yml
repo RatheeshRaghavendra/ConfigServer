@@ -1,9 +1,9 @@
 welcome:
  message: "Hello welcome to dev environment"
- resilience4j:
-  ratelimiter:
-   instances:
-    productRL:
-     limitForPeriod: 15
-     limitRefreshPeriod: 5s
-     timeoutDuration: 3s
+resilience4j:
+ ratelimiter:
+  instances:
+   productRL:
+    limitForPeriod: 15
+    limitRefreshPeriod: 5s
+    timeoutDuration: 3s
